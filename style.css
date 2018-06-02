@@ -1,0 +1,41 @@
+html {
+    /* Fonts */
+    font-family: 'Fondamento', cursive;
+    font-family: 'Metamorphous', cursive;
+    font-family: 'Dr Sugiyama', cursive;
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 16px;
+}
+
+/* Default Style  */
+body{
+    margin-left: auto;
+    margin-right: auto;
+    background-image: url('../images/milos-tonchevski-304534-unsplash.jpg');
+    background-size: cover;
+    background-position: fixed;
+}
+header {
+        background: #1c1e13;    
+    }
+h1 {
+    font-family: 'Fondamento';
+    color: #d5d5d5;
+}
+nav {
+    font-family: 'fondamento';
+    
+}
+.nav-link {
+    color: #d5d5d5;
+}
+.navstyle {
+    background: #1c1e13;
+    color: #d5d5d5;
+    font-family: 'Fondamento';
+
+}
+#logo {
+    width: 80px;
+    padding-right: 20px;
+}
