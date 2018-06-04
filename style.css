@@ -12,7 +12,6 @@ body{
     margin-left: auto;
     margin-right: auto;
     background-image: url('../images/newback.png');
-    /* ß */
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -54,6 +53,10 @@ h3 {
     color: #608fbe;
 
 }
+.nav-item .nav-link:active{
+    color: #ffffff;
+    font-weight: bold;
+}
 #logo {
     width: 100px;
     padding-right: 20px;
@@ -66,7 +69,7 @@ main {
 .homestyle {
     background-image: url('../images/milos-tonchevski-304534-unsplash.jpg');
 
- 
+
 }
 .homestyle p {
     font-family: "Didact Gothic";
