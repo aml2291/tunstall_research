@@ -1,14 +1,49 @@
-
-
-// // Create the map object, set the view and zoom
-// const mymap = L.map("mapid").setView([51.54459997092629, -0.10986327875002644], 6.4);
-
-// API endpoint for JSON response
-const seattle911API =
-  "https://data.seattle.gov/resource/grwu-wqtk.json?$where=datetime%20is%20not%20null&$order=datetime%20desc&$limit=50";
-
+const BATTLES = [
+    {
+        "title": "First Battle of St. Albans",
+        "type": "Battle",
+        "yorkactors": "Richard Duke of York, Richard Neville Earl of Salisbury, Richard Neville Earl of Warwick", 
+        "lancasteractors": "Henry VI, Edmund Beaufort, Humphrey Stafford, Henry Percy, Thomas Courtenay, Thomas Baron Clifford",
+        "day": 22,
+        "month": "May",
+        "year": 1455,
+        "latitude": 51.7533126,
+        "longitude": -0.3415907,
+        "description": "Decisive Yorkist Victory",
+        "victor": 1,
+    },
+    {
+        "title": "Battle of Blore Heath",
+        "type": "Battle",
+        "yorkactors": "Richard Neville Earl of Salisbury, Sir John Neville, Thomas Neville",
+        "lancasteractors": "James Tuchet Lord Audley, John Sutton Lord Dudley", 
+        "day": 23,
+        "month": "September",
+        "year": 1459,
+        "latitude": 52.9086591,
+        "longitude": -2.4268678,
+        "description": "Yorkist Victory",
+        "victor": 1,
+    },
+    {
+        "title": "Battle of Ludford Bridge",
+        "type": "Battle",
+        "yorkactors": "Richard Duke of York, Richard Neville Earl of Salisbury, Richard Neville Earl of Warwick", 
+        "lancasteractors": "Henry VI, Humphrey Stafford",
+        "day": 12,
+        "month": "October",
+        "year": 1459,
+        "latitude": 52.361,
+        "longitude": -2.718,
+        "description": "Lancastrian Victory",
+        "victor": 0,
+    },
+ 
+];
+console.log(window.BATTLES);
+const battleData = window.BATTLES;
 // Create the map object, set the view and zoom
-const mymap = L.map("mapid").setView([47.604311, -122.331734], 11.5);
+const mymap = L.map("mapid").setView([51.54459997092629, -0.10986327875002644], 6.8);
 
 // Add the background tiles to the map
 L.tileLayer(
@@ -16,18 +51,11 @@ L.tileLayer(
   {
     attribution:
       'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    maxZoom: 18,
-    id: "mapbox.streets",
+    maxZoom:100,
+    id: "mapbox.streets-satellite",
     accessToken:
       "pk.eyJ1Ijoibmlja2RlbmFyZGlzIiwiYSI6ImNqaGRla2pjMjBvYXgzNm13Yzc3aGIwM3kifQ.G2Tr-B7ppCNdj6xuM0Qc5A"
-  }
-).addTo(mymap);
-
-// Parse the JSON response
-function parseAsJSON(response) {
-  return response.json();
-  // Return the JSON from the response
-}
+  }).addTo(mymap);
 
 // What to do if there is an error
 function handleError(err) {
@@ -38,30 +66,19 @@ function handleError(err) {
 
 // Render the things on the map on screen
 function renderMap(data) {
-  console.log(data);
-  // iterate through data
+// iterate through data
   for (var i = 0; i < data.length; i++) {
-    //check if there is a value for long/lat
-    if (typeof (data[i].latitude) !== "undefined"){
-      if (typeof (data[i].longitude) !== "undefined"){
-        //Convert long/lat to number type
-        var lat = Number(data[i].latitude);
-        //console.log(data[i].latitude, lat);
-        var long = Number(data[i].longitude);
-        //console.log(data[i].longitude, long); 
-       // console.log(lat, long,i)
-       //Add marker
-        var marker = L.marker([lat, long]).addTo(mymap);
-        var typeText = data[i].type;
-        var timeText = moment(data[i].datetime).fromNow();
-        var addressText = data[i].address; 
+    //    //Add marker
+        var marker = L.marker([data[i].latitude, data[i].longitude], {color: 'red',
+        fillColor: '#f03'}).addTo(mymap);
+        console.log(data[i].latitude, data[i].longitude);
+        var battleTitle = data[i].title;
+        var battleDay = data[i].day;
+        var battleMonth = data[i].month;
+        var battleYear = data[i].year;
+        var battleDescription = data[i].description;
         //add popup
-        marker.bindPopup("<b>"+ typeText + "</b>" + "<br>" + timeText + "<br>" + addressText ).openPopup();
+        marker.bindPopup("<b>"+ battleTitle + "</b>" + "<br>" + battleDay + " " + battleMonth + " " + battleYear + "<br>" + battleDescription).openPopup();
       }
     }
-  }
-}
-fetch(seattle911API)
-    .then(parseAsJSON)
-    .then(renderMap)
-    .catch(handleError);
+renderMap(BATTLES);
