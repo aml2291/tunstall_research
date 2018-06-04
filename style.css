@@ -11,7 +11,7 @@ html {
 body{
     margin-left: auto;
     margin-right: auto;
-    background-image: url('../images/newback.png');
+    background-image: url("../tunstall_research/Images/newback.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -67,7 +67,7 @@ main {
     margin-top: 50px;
 }
 .homestyle {
-    background-image: url('../images/milos-tonchevski-304534-unsplash.jpg');
+    background-image: url('../tunstall_research/Images/milos-tonchevski-304534-unsplash.jpg');
 
 
 }
