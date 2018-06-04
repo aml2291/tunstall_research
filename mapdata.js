@@ -1,0 +1,1 @@
+{"event":"First Battle of St. Albans","datetime":"1455-05-22","text":"F180056775","latitude":"51.7467822","longitude":"-0.373782","report_location":{"type":"Point","coordinates":[-122.347375,47.663544]},"victor":"York"}

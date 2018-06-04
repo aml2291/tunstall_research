@@ -11,31 +11,66 @@ html {
 body{
     margin-left: auto;
     margin-right: auto;
-    background-image: url('../images/milos-tonchevski-304534-unsplash.jpg');
+    background-image: url('../images/newback.png');
+    /* ß */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     background-size: cover;
-    background-position: fixed;
 }
+
 header {
-        background: #1c1e13;    
+    background-color: none;   
     }
 h1 {
     font-family: 'Fondamento';
     color: #d5d5d5;
 }
-nav {
-    font-family: 'fondamento';
-    
+h3 {
+    font-family: 'Metamorphous';
+    color: #cb4c23;
+    font-size: 1.5rem;
 }
-.nav-link {
-    color: #d5d5d5;
-}
-.navstyle {
-    background: #1c1e13;
+.nav-style {
+    background-color: none;
     color: #d5d5d5;
     font-family: 'Fondamento';
+}
+.nav-item .nav-link {
+    font-size: 1rem;
+    color: #d5d5d5;
+} 
+.nav-item .nav-link:hover {
+    color:#979aaa;
+    text-decoration: blink;
+}
+
+.navbar-brand {
+    color: #4c516d;
+    font-family: 'Metamorphous';
+    font-size: 2rem;
+    
+}
+.navbar-brand:hover {  
+    color: #608fbe;
 
 }
 #logo {
-    width: 80px;
+    width: 100px;
     padding-right: 20px;
 }
+main {
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-top: 50px;
+}
+.homestyle {
+    background-image: url('../images/milos-tonchevski-304534-unsplash.jpg');
+
+ 
+}
+.homestyle p {
+    font-family: "Didact Gothic";
+    color: #d5d5d5;
+    margin-top: 40px;
+}
+
